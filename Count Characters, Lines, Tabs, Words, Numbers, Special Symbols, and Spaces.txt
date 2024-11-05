@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+int main() {
+    char line[100];
+    int characters = 0, lines = 0, tabs = 0, words = 0, numbers = 0, symbols = 0, spaces = 0;
+    int inWord = 0;
+
+    printf("Enter text (type 'END' to finish):\n");
+
+    while (1) {
+        fgets(line, sizeof(line), stdin);
+
+        if (strncmp(line, "END", 3) == 0) break;
+
+        for (int i = 0; line[i] != '\0'; i++) {
+            char ch = line[i];
+            characters++;
+
+            if (ch == '\n')
+                lines++;
+            else if (ch == '\t')
+                tabs++;
+            else if (ch == ' ')
+                spaces++;
+            else if (isdigit(ch))
+                numbers++;
+            else if (ispunct(ch))
+                symbols++;
+
+            if (isalnum(ch)) {
+                if (!inWord) {
+                    inWord = 1;
+                    words++;
+                }
+            } else {
+                inWord = 0;
+            }
+        }
+    }
+
+    printf("Characters: %d\nLines: %d\nTabs: %d\nWords: %d\nNumbers: %d\nSpecial Symbols: %d\nSpaces: %d\n",
+           characters, lines, tabs, words, numbers, symbols, spaces);
+
+    return 0;
+}

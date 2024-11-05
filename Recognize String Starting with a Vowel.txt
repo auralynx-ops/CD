@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char word[100];
+    printf("Enter a word: ");
+    scanf("%s", word);
+
+    char firstChar = tolower(word[0]);
+    if (firstChar == 'a' || firstChar == 'e' || firstChar == 'i' || firstChar == 'o' || firstChar == 'u') {
+        printf("The word starts with a vowel.\n");
+    } else {
+        printf("The word does not start with a vowel.\n");
+    }
+
+    return 0;
+}

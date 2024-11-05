@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+int isLogicalOperator(char *str) {
+    return strcmp(str, "&&") == 0 || strcmp(str, "||") == 0 || strcmp(str, "!") == 0;
+}
+
+int main() {
+    char op[3];
+    printf("Enter an operator: ");
+    scanf("%s", op);
+
+    if (isLogicalOperator(op)) {
+        printf("%s is a logical operator.\n", op);
+    } else {
+        printf("%s is not a logical operator.\n", op);
+    }
+
+    return 0;
+}

@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int a = 7;            // 3 + 4 is replaced by 7
+    int b = 14;           // 7 * 2 is replaced by 14
+    int c = 45;           // (5 + 10) * 3 is replaced by 45
+    int result = a + b + c; // result = 7 + 14 + 45
+
+    printf("Result: %d\n", result); // Output is now more efficient
+
+    return 0;
+}
